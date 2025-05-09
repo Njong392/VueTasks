@@ -1,17 +1,17 @@
 [
     {
         "id": "Type 1",
-        "description": "clients normaux",
-        "namingSeries": "vide"
+        "description": "Clients Normaux",
+        "namingSeries": 0
     },
     {
         "id": "Type 2",
-        "description": "clients privilegees",
-        "namingSeries": "vide"
+        "description": "Clients Privilegees",
+        "namingSeries": 0
     },
     {
         "id": "Type 3",
-        "description": "clients partenaires",
-        "namingSeries": "vide"
+        "description": "Clients Partenaires",
+        "namingSeries": 0
     }
 ]

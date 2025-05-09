@@ -14,6 +14,8 @@ import clientCommands from '@/config/commands'
 import clients from '@/config/clients'
 import { useSearch } from '@/utils/search'
 import { useRowOperations } from '@/utils/rowOperations'
+import namingSeriesTable from '@/config/namingSeries'
+import customerTypes from '@/config/customerTypes'
 
 const reactiveCommands = ref(clientCommands)
 const clientList = ref(clients)
@@ -35,6 +37,7 @@ let row = ref(null)
 const selectedRowOnClientTable = ref(-1)
 const isOrderMaxedOut = ref(false)
 const { selectedRow, selectRow, isSelected } = useRowOperations()
+const namingSeries = ref(namingSeriesTable)
 
 
 // adding number of days to date
@@ -124,13 +127,49 @@ const isClientTableRowSelected = (index) => {
 }
 
 const initNewRow = () => {
+    // Get the default naming series
+    const defaultSeries = namingSeries.value.find(series => series.isDefault)
+
+    if(!defaultSeries){
+        console.log('No default naming series found')
+        return
+    }
+
+    // Get the last number used or start from startNo
+    let nextOrderNo = ""
+    if(!defaultSeries.lastUsedNo){
+        nextOrderNo = defaultSeries.startNo
+    } else{
+        // check if lastUsedNo is within range of startNo and endNo
+       if(defaultSeries.lastUsedNo <= defaultSeries.endNo){
+           // get prefix and number from lastUsedNo and increment
+           const match = defaultSeries.lastUsedNo.match(/^([A-Z]+-)(\d+)$/)
+           if (match) {
+               const prefix = match[1]
+               const number = parseInt(match[2]) + 1
+               const padded = number.toString().padStart(match[2].length, '0')
+               nextOrderNo = `${prefix}${padded}`
+           } else {
+               console.log('Invalid last used number format')
+               return
+           }
+       }
+    }
+
+
+    // set up new order
     newOrder = columns.value.reduce((acc, column) => {
-        acc[column.key] = column.defaultValue
+        acc[column.key] = column.key === 'orderNo' ? nextOrderNo : column.defaultValue
         return acc
 
     }, {})
 
+    // push to table
     filteredCommands.value.push(newOrder)
+
+    // update lastUsedNo in naming series table
+    defaultSeries.lastUsedNo = nextOrderNo
+
     newOrder = null
 }
 

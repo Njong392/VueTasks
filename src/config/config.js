@@ -150,7 +150,7 @@ const config = {
         editable: true,
         visibility: true,
         type: "select",
-        defaultValue: "Type 1",
+        defaultValue: 0,
         optionsKey: "customerType",
       },
     ],
@@ -187,8 +187,16 @@ const config = {
         visibility: true,
         editable: true,
         type: "select",
+        optionsKey: "namingSeries",
       },
     ],
+    options: {
+      namingSeries: {
+        0: { label: "Vide" },
+        1: { label: "EMY" },
+        2: { label: "ORD" },
+      },
+    },
   },
 
   namingSeriesTable: {

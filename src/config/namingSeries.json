@@ -1,8 +1,8 @@
 [
     {
-        "id": "CLT",
-        "startNo": "CLT-0001",
-        "endNo": "CLT-9999",
+        "id": "ORD",
+        "startNo": "ORD-0001",
+        "endNo": "ORD-9999",
         "lastUsedNo": "",
         "isAutomatic": false,
         "isManual": false,
