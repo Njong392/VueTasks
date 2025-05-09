@@ -1,0 +1,23 @@
+[
+    {
+        "customerNo": "CBE001",
+        "customerName": "Emy",
+        "deliveryDays": 10,
+        "maxCommandNo": 7,
+        "customerType": 0
+    },
+    {
+        "customerNo": "CBE004",
+        "customerName": "Manuela",
+        "deliveryDays": 10,
+        "maxCommandNo": 4,
+        "customerType": 0
+    },
+    {
+        "customerNo": "CBE003",
+        "customerName": "Arnold",
+        "deliveryDays": 4,
+        "maxCommandNo": 5,
+        "customerType": 0
+    }
+]

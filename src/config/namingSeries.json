@@ -1,0 +1,21 @@
+[
+    {
+        "id": "CLT",
+        "startNo": "CLT-0001",
+        "endNo": "CLT-9999",
+        "lastUsedNo": "",
+        "isAutomatic": false,
+        "isManual": false,
+        "isDefault": false
+    },
+    {
+        "id": "EMY",
+        "startNo": "EMY-0001",
+        "endNo": "EMY-9999",
+        "lastUsedNo": "",
+        "isAutomatic": false,
+        "isManual": false,
+        "isDefault": false
+    }
+
+]

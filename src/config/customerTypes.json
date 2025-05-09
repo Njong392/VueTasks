@@ -1,0 +1,17 @@
+[
+    {
+        "id": "Type 1",
+        "description": "clients normaux",
+        "namingSeries": "vide"
+    },
+    {
+        "id": "Type 2",
+        "description": "clients privilegees",
+        "namingSeries": "vide"
+    },
+    {
+        "id": "Type 3",
+        "description": "clients partenaires",
+        "namingSeries": "vide"
+    }
+]
